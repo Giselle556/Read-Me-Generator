@@ -3,66 +3,65 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 
 
+inquirer
+  .prompt([
+    {
+      name: "title",
+      message: "what is the title of your project",
+    },
+    {
+      name: "description",
+      message: "describe your project",
+    },
+    {
+      name: "technology",
+      message: "what technology did you use for this project",
+    },
+    {
+      name: "usage",
+      message: "How do you navigate through the project",
+    },
+    {
+      name: "license",
+      message: "What is the license for this project",
+      type: "checkbox",
+      choices: ["MIT", "Artisitic", "GNU", "Apache"],
+    },
+    {
+      name: "Contributing",
+      message: "Who contributed to this project",
+    },
+    {
+      name: "Tests",
+      message: "What tests were performed for this project",
+    },
+    {
+      name: "Q",
+      message: "Message for users if they have any questions about project",
+    },
+  ])
 
-inquirer.prompt([
-    {
-        name: "title",
-        message: "what is the title of your project",
-    },
-    {
-        name: "description",
-        message: "describe your project",
-    },
-    {
-        name: "technology",
-        message: "what technology did you use for this project",
-    },
-    {
-        name: "usage",
-        message: "How do you navigate through the project",
-    },
-    {
-        name: "license",
-        message: "What is the license for this project",
-        type: "checkbox",
-        choices: ["MIT", "Artisitc", "GNU", "Apache"],
-    },
-    {
-        name: "Contributing",
-        message: "Who contributed to this project",
-    },
-    {
-        name: "Tests",
-        message: "What tests were performed for this project",
-    },
-    {
-        name: "Q",
-        message: "Message for users if they have any questions about project",
-
-    },
-])
-
-.then(function (data) {
+  .then(function (data) {
     console.log(data);
-    fs.writeFile(
-        `./data/${data.title}.md`,
-        generateMarkdown(data),
-        function (err) {
-            if (err) return console.log(err);
-            console.log("Done!");
-        }
-    );
-});
-function generateMarkdown(data) {
-    return `# ${data.title}
 
-${data.description.join("\n")}
+    fs.writeFile(
+      `./data/${data.title}.md`,
+      generateMarkdown(data),
+      function (err) {
+        if (err) return console.log(err);
+        console.log("Done!");
+      }
+    );
+  });
+function generateMarkdown(data) {
+  return `# ${data.title}
+
+${data.description}
   
 ${data.technology}
 
   `;
-  }
-
+}
 
 // GIVEN a command-line application that accepts user input
 // WHEN I am prompted for information about my application repository
