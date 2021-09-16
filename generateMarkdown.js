@@ -7,8 +7,14 @@ var inquirer = require('inquirer');
 inquirer
   .prompt([
     /* Pass your questions in here */
+    {
+    name: "license",
+        message: "What is the license for this project",
+        type: "checkbox",
+        },
   ])
   .then((answers) => {
+    choices: ["MIT", "Artisitc", "GNU", "Apache"]
     // Use user feedback for... whatever!!
   })
   .catch((error) => {
