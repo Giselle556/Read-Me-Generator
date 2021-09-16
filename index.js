@@ -1,9 +1,10 @@
 console.clear();
 const inquirer = require("inquirer");
-const fs = require("fs")
+const fs = require("fs");
 
 
-const questions = [
+
+inquirer.prompt([
     {
         name: "title",
         message: "what is the title of your project",
@@ -24,7 +25,7 @@ const questions = [
         name: "license",
         message: "What is the license for this project",
         type: "checkbox",
-        choices: ["Public Domain", "Permissive", "LGPL", "simplified"],
+        choices: ["MIT", "Artisitc", "GNU", "Apache"],
     },
     {
         name: "Contributing",
@@ -39,18 +40,30 @@ const questions = [
         message: "Message for users if they have any questions about project",
 
     },
-]
+])
 
-function writeToFile(fileName,data){}
+.then(function (data) {
+    console.log(data);
+    fs.writeFile(
+        `./data/${data.title}.md`,
+        generateMarkdown(data),
+        function (err) {
+            if (err) return console.log(err);
+            console.log("Done!");
+        }
+    );
+});
+function generateMarkdown(data) {
+    return `# ${data.title}
+
+${data.description.join("\n")}
+  
+${data.technology}
+
+  `;
+  }
 
 
-function init(){
-    inquirer.prompt(questions).then(function (data) {
-        console.log(data);
-    });
-}
-
-init();
 // GIVEN a command-line application that accepts user input
 // WHEN I am prompted for information about my application repository
 // THEN a high-quality, professional README.md is generated with the title of my project and sections entitled Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
