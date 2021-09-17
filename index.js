@@ -3,6 +3,7 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 
 
+
 inquirer
   .prompt([
     {
@@ -36,7 +37,7 @@ inquirer
       message: "What tests were performed for this project",
     },
     {
-      name: "Q",
+      name: "Contact",
       message: "Message for users if they have any questions about project",
     },
   ])
@@ -55,14 +56,23 @@ inquirer
   });
 function generateMarkdown(data) {
   return `# ${data.title}
-
+## Description
 ${data.description}
-  
+## Technology
 ${data.technology}
+## Usage
+${data.usage}
+## License
+${data.license}
+## Contributing
+${data.contributing}
+## Tests
+${data.Tests}
+## Contact
+${data.Contact}
 
-  `;
+ `;
 }
-
 // GIVEN a command-line application that accepts user input
 // WHEN I am prompted for information about my application repository
 // THEN a high-quality, professional README.md is generated with the title of my project and sections entitled Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
