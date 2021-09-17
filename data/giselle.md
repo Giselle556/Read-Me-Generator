@@ -1,5 +1,9 @@
 # giselle
+  ![badge](https://img.shields.io/badge/license-MIT-brightgreen)
 
+## Description
+its pretty cool
+  
   ## Table of Contents
   * [Technology](#technology)
   * [Installation](#installation)
@@ -9,8 +13,6 @@
   * [Tests](#tests)
   * [Contact](#contact)
 
-## Description
-cool
 
 ## Technology
 html
@@ -19,18 +21,23 @@ html
 click
 
 ## License
+![badge](https://img.shields.io/badge/license-MIT-brightgreen)
+<br />
+This application is covered by the MIT license.
 
+## License
+MIT
 
 ## Contributing
 undefined
 
 ## Tests
-90
+72
 
 ## Contact
-To view my github profile vlick this link: <sdncjsdnvjsdn.com>
-
-Please contact me at djhncfhjsdb@meee with any questions or concerns
+Find me on GitHub: [556](https://github.com/556)<br />
+<br />
+✉️ Email me with any questions: @me<br /><br />
 
 
  

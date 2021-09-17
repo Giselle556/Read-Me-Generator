@@ -25,8 +25,8 @@ inquirer
     {
       name: "license",
       message: "What is the license for this project",
-      type: "checkbox",
-      choices: ["MIT", "Boost", "BSD3"],
+      type: "list",
+      choices: ["MIT", "Apache", "GNU"],
     },
     {
       name: "Contributing",
@@ -60,9 +60,10 @@ inquirer
   });
 function generateMarkdown(data) {
   return `# ${data.title}
-  
-  ## Description
-  ${data.description}
+  ![badge](https://img.shields.io/badge/license-${data.license}-brightgreen)
+
+## Description
+${data.description}
   
   ## Table of Contents
   * [Technology](#technology)
@@ -83,7 +84,7 @@ ${data.usage}
 ## License
 ![badge](https://img.shields.io/badge/license-${data.license}-brightgreen)
 <br />
-This application is covered by the ${answers.license} license.
+This application is covered by the ${data.license} license.
 
 ## License
 ${data.license}
@@ -95,9 +96,9 @@ ${data.contributing}
 ${data.Tests}
 
 ## Contact
-To view my github profile vlick this link: <${data.user}>
-
-Please contact me at ${data.Contact} with any questions or concerns
+Find me on GitHub: [${data.user}](https://github.com/${data.user})<br />
+<br />
+✉️ Email me with any questions: ${data.Contact}<br /><br />
 
 
  `;
