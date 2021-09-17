@@ -38,7 +38,11 @@ inquirer
     },
     {
       name: "Contact",
-      message: "Message for users if they have any questions about project",
+      message: "What is an email a user can contact you regarding a question",
+    },
+    {
+        name: "user",
+        message: "Copy your github repo https link here",
     },
   ])
 
@@ -56,20 +60,39 @@ inquirer
   });
 function generateMarkdown(data) {
   return `# ${data.title}
+
+  ## Table of Contents
+  * [Technology](#technology)
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [License](#license)
+  * [Contribution](#contribution)
+  * [Tests](#tests)
+  * [Contact](#contact)
+
 ## Description
 ${data.description}
+
 ## Technology
 ${data.technology}
+
 ## Usage
 ${data.usage}
+
 ## License
 ${data.license}
+
 ## Contributing
 ${data.contributing}
+
 ## Tests
 ${data.Tests}
+
 ## Contact
-${data.Contact}
+To view my github profile vlick this link: <${data.user}>
+
+Please contact me at ${data.Contact} with any questions or concerns
+
 
  `;
 }
