@@ -26,7 +26,7 @@ inquirer
       name: "license",
       message: "What is the license for this project",
       type: "checkbox",
-      choices: ["MIT", "Artisitic", "GNU", "Apache"],
+      choices: ["MIT", "Boost", "BSD3"],
     },
     {
       name: "Contributing",
@@ -60,7 +60,10 @@ inquirer
   });
 function generateMarkdown(data) {
   return `# ${data.title}
-
+  
+  ## Description
+  ${data.description}
+  
   ## Table of Contents
   * [Technology](#technology)
   * [Installation](#installation)
@@ -70,14 +73,17 @@ function generateMarkdown(data) {
   * [Tests](#tests)
   * [Contact](#contact)
 
-## Description
-${data.description}
 
 ## Technology
 ${data.technology}
 
 ## Usage
 ${data.usage}
+
+## License
+![badge](https://img.shields.io/badge/license-${data.license}-brightgreen)
+<br />
+This application is covered by the ${answers.license} license.
 
 ## License
 ${data.license}
